@@ -13,6 +13,7 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+
 }
 
 repositories {
@@ -24,13 +25,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation "org.springframework.boot:spring-boot-starter-test"
-	testCompile "org.springframework.boot:spring-boot-starter-test"
-	testCompile "org.mockito:mockito-core:2.+"
+	testImplementation ('org.springframework.boot:spring-boot-starter-test'){
+		exclude group: 'junit'
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
 	testImplementation 'io.projectreactor:reactor-test'
     implementation 'junit:junit:4.12'
-	testImplementation("au.com.dius:pact-jvm-provider-spring_2.12:3.5.24")
-	testImplementation("au.com.dius:pact-jvm-provider-junit_2.12:3.5.24")
+	testImplementation('au.com.dius:pact-jvm-provider-spring_2.12:3.6.15')
+	testImplementation('au.com.dius:pact-jvm-provider-junit_2.12:3.6.15')
 }
 
 test {

@@ -27,7 +27,7 @@ import static org.junit.Assert.assertEquals;
 public class RetailerContractTests {
 
   private static final String HOST_NAME = "localhost";
-  private static final int PORT = 8088;
+  private static final int PORT = 8002;
 
   @Autowired
   private CustomerService customerService;
